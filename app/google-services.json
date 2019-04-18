@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "826494116283",
+    "firebase_url": "https://iesb-carpool-224a6.firebaseio.com",
+    "project_id": "iesb-carpool-224a6",
+    "storage_bucket": "iesb-carpool-224a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826494116283:android:ff6317d1d05ec49e",
+        "android_client_info": {
+          "package_name": "br.iesb.iesbcarpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826494116283-9kh26nhvdorqfemh9eht78620fpaav6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMM85b7xPwc9WROtrfy8ld-5Ru8TIhOZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826494116283-9kh26nhvdorqfemh9eht78620fpaav6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
