@@ -47,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser user = auth.getCurrentUser();
-                    Toast.makeText(activity,"Usuario cadastrado!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,"Login efetuado com sucesso!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(activity,UsuarioCadastrado.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(activity,"Falha na autenticação",Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,"Email ou senha errados.",Toast.LENGTH_LONG).show();
                 }
             }
         });
