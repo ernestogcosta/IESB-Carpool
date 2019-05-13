@@ -1,7 +1,9 @@
-package br.iesb.iesbcarpool;
+package br.iesb.iesbcarpool.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.iesb.iesbcarpool.R;
 
 public class UsuarioCadastrado extends AppCompatActivity {
 
