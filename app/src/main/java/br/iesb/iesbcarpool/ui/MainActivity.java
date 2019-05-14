@@ -26,13 +26,21 @@ public class MainActivity extends AppCompatActivity {
         final EditText email = findViewById(R.id.txtEmail);
         final EditText senha = findViewById(R.id.txtSenha);
 
-        Button buttonLogin = findViewById(R.id.buttonLogin);
-        Button buttonCadastro = findViewById(R.id.buttonCadastro);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnCadastro = findViewById(R.id.btnCadastro);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login(email.getText().toString(),senha.getText().toString(),MainActivity.this);
+            }
+        });
+
+        btnCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Cadastro.class);
+                startActivity(i);
             }
         });
 
