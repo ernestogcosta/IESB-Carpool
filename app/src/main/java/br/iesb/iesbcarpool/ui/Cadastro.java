@@ -27,17 +27,18 @@ public class Cadastro extends AppCompatActivity {
         Button btnVoltar = findViewById(R.id.btnVoltar);
         Button btnProximo = findViewById(R.id.btnProximo);
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CadastrarFoto.class);
                 startActivity(intent);
+            }
+        });
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
