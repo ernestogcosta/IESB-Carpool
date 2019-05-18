@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -30,8 +31,14 @@ public class Cadastro extends AppCompatActivity {
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastrarFoto.class);
-                startActivity(intent);
+
+                if (txtNome.getText().toString().matches("") || txtSobrenome.getText().toString().matches("") ||
+                        txtEmail.getText().toString().matches("") || txtPassword.getText().toString().matches("")){
+                    Toast.makeText(Cadastro.this,"Preencha todos os campos.!", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent = new Intent(getApplicationContext(), CadastrarFoto.class);
+                    startActivity(intent);
+                }
             }
         });
 
