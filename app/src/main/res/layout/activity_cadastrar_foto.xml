@@ -10,15 +10,21 @@
 
     <ImageView
         android:id="@+id/image_view"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_image_black_24dp"
-        android:layout_width="410dp"
-        android:layout_height="400dp"/>
+        android:src="@drawable/ic_image_black_24dp" />
 
     <Button
         android:id="@+id/capture_image_btn"
         android:text="Tirar foto."
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="144dp"
+        android:layout_height="89dp"
+        android:text="Registrar" />
 
 </LinearLayout>

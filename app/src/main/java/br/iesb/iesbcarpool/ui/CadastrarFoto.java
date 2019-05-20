@@ -23,7 +23,9 @@ import static br.iesb.iesbcarpool.Constants.PERMISSION_CODE;
 
 public class CadastrarFoto extends AppCompatActivity {
 
-    Button mCaptureBtn;
+    private static final int PERMISSION_CODE = 1000;
+    private static final int IMAGE_CAPTURE_CODE = 1001;
+    Button mCaptureBtn, btnRegistrar;
     ImageView mImageView;
 
     Uri image_uri;
@@ -35,6 +37,7 @@ public class CadastrarFoto extends AppCompatActivity {
 
         mImageView = findViewById(R.id.image_view);
         mCaptureBtn = findViewById(R.id.capture_image_btn);
+        btnRegistrar = findViewById(R.id.btnRegistrar);
 
         mCaptureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +57,18 @@ public class CadastrarFoto extends AppCompatActivity {
                     //system os < marshmallow
                     openCamera();
                 }
+            }
+        });
+
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //PRIMEIRO TEM QUE TER TUDO DE REGISTRAR NO FIREBASE
+                //INCLUSIVE DE PEGAR OS EXTRAS COM EMAIL E X PRA REGISTRAR COM A FOTO
+                //APÓS REGISTRAR, CHAMA NOVA INTENT
+
+                Intent intent = new Intent(getApplicationContext(), UsuarioCadastrado.class);
+                startActivity(intent);
             }
         });
     }
