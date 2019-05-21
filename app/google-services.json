@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "826494116283-qnpi2ct5m47080ecvcskcblmbbb165kj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.iesb.iesbcarpool",
+            "certificate_hash": "5475059a84bcdcced0fb7093cc96dc0f4af5a9b8"
+          }
+        },
+        {
           "client_id": "826494116283-9kh26nhvdorqfemh9eht78620fpaav6q.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtSenha;
     private TextView txtCadastro;
     private Button btnLogin;
+    private TextView txtEsqueceuSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         txtSenha = findViewById(R.id.txtSenha);
         txtCadastro = findViewById(R.id.txtCadastro);
         btnLogin = findViewById(R.id.btnLogin);
+        txtEsqueceuSenha = findViewById(R.id.idEsqueceuSenha);
     }
 
     private void eventoClicks(){
@@ -59,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        txtEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ResetSenhaActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     private void login(final String email,final String senha){
@@ -90,4 +102,6 @@ public class MainActivity extends AppCompatActivity {
     private void alert(String msg){
         Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
     }
+
+
 }

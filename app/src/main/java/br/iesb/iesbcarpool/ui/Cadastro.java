@@ -146,13 +146,6 @@ public class Cadastro extends AppCompatActivity {
         return true;
     }
 
-    private boolean validaMatricula(String matricula){
-        if(matricula.length() == 10){
-            return true;
-        }else{
-            return false;
-        }
-    }
     @Override
     protected void onStart() {
         super.onStart();
