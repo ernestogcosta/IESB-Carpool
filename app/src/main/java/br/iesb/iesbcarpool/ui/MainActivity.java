@@ -1,6 +1,5 @@
 package br.iesb.iesbcarpool.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,13 +14,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
 
 import br.iesb.iesbcarpool.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private EditText txtEmail;
     private EditText txtSenha;
@@ -66,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(final String email,final String senha){
-        final LoginActivity loginActivity = LoginActivity.this;
+        final MainActivity loginActivity = MainActivity.this;
         final FirebaseAuth auth = Conexao.getFirebaseAuth();
         auth.signInWithEmailAndPassword(email,senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -74,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     alert("Login efetuado com sucesso");
-                    Intent i = new Intent(LoginActivity.this, UsuarioCadastrado.class);
+                    Intent i = new Intent(MainActivity.this, UsuarioCadastrado.class);
                     startActivity(i);
                     finish();
                 }else{
@@ -92,6 +88,6 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
     private void alert(String msg){
-        Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
     }
 }

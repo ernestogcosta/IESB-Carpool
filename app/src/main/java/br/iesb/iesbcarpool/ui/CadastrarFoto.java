@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import br.iesb.iesbcarpool.R;
 
+import static br.iesb.iesbcarpool.Constants.IMAGE_CAPTURE_CODE;
+import static br.iesb.iesbcarpool.Constants.PERMISSION_CODE;
+
 public class CadastrarFoto extends AppCompatActivity {
 
     private static final int PERMISSION_CODE = 1000;
