@@ -41,7 +41,12 @@ public class ResetSenhaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = txtEmail.getText().toString().trim();
-                resetSenha(email);
+                if(validaCampos(email)){
+                    resetSenha(email);
+                }else{
+                    alert("Email é obrigatório");
+                }
+
             }
         });
     }
@@ -61,6 +66,12 @@ public class ResetSenhaActivity extends AppCompatActivity {
                 });
     }
 
+    private boolean validaCampos(String email){
+        if(email.length() == 0){
+            return false;
+        }
+        return true;
+    }
     private void alert(String msg){
         Toast.makeText(ResetSenhaActivity.this,msg,Toast.LENGTH_LONG).show();
     }
