@@ -5,8 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,8 @@ public class Cadastro extends AppCompatActivity {
     private Button btnVoltar;
     private Button btnProximo;
     private Button btnCadastro;
+    private Spinner spinerIESB;
+    private Spinner spinerSexo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,15 @@ public class Cadastro extends AppCompatActivity {
         btnProximo = findViewById(R.id.idBtnProximo);
         btnVoltar = findViewById(R.id.idBtnVoltar);
         btnCadastro = findViewById(R.id.idBtnCadastro);
+        spinerIESB = findViewById(R.id.idSpinnerIESB);
+        spinerSexo = findViewById(R.id.idSpinnerSexo);
+        ArrayAdapter arrayAdapterIESB = new ArrayAdapter(this,android.R.layout.simple_spinner_item,IESB.values());
+        arrayAdapterIESB.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinerIESB.setAdapter(arrayAdapterIESB);
+
+        ArrayAdapter arrayAdapterSexo = new ArrayAdapter(this,android.R.layout.simple_spinner_item,Sexo.values());
+        arrayAdapterSexo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinerSexo.setAdapter(arrayAdapterSexo);
     }
 
 
@@ -81,7 +95,8 @@ public class Cadastro extends AppCompatActivity {
     private void criarUser(final String email,
                            final String senha,
                            final String nome,
-                           final String matricula){
+                           final String matricula
+                           ){
         auth.createUserWithEmailAndPassword(email,senha)
                 .addOnCompleteListener(Cadastro.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -102,16 +117,22 @@ public class Cadastro extends AppCompatActivity {
     private void alert(String msg){
         Toast.makeText(Cadastro.this,msg,Toast.LENGTH_LONG).show();
     }
-    private void criaEGravaUsuario(String email,String senha,String nome,String matricula, String uid){
-
-        Usuario usuario = new Usuario(nome,email,senha,uid);
+    private void criaEGravaUsuario(String email,
+                                   String senha,
+                                   String nome,
+                                   String matricula,
+                                   String uid){
+        Sexo sexo = (Sexo) spinerSexo.getSelectedItem();
+        IESB iesb = (IESB) spinerIESB.getSelectedItem();
+        Usuario usuario = new Usuario(nome,email,senha,sexo,iesb,uid);
         usuario.gravaNovosDados(matricula);
     }
 
     private void verificaMatriculaExisteNoBanco(final String matricula,
                                                    final String nome,
                                                    final String email,
-                                                   final String senha){
+                                                   final String senha
+    ){
         DatabaseReference reference = Conexao.getReference();
         reference.child("Aluno")
                 .child(matricula)
