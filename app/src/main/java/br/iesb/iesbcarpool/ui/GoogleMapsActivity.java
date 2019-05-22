@@ -12,11 +12,16 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.SupportMapFragment;
+
+import java.util.ArrayList;
 
 import br.iesb.iesbcarpool.R;
 
@@ -45,7 +50,6 @@ public class GoogleMapsActivity extends AppCompatActivity {
         if(checkMapServices()){
             if(mLocationPermissionGranted){
                 getUsuarios();
-
             }else{
                 getLocationPermission();
             }
@@ -55,7 +59,6 @@ public class GoogleMapsActivity extends AppCompatActivity {
     private void getUsuarios() {
         Toast.makeText(GoogleMapsActivity.this,"Funcionou",Toast.LENGTH_LONG).show();
     }
-
 
     /*Primeiro roda o isServicesOk para saber se Google Services pode ser utilizado, se sim, então
     * é rodado o isMapsEnabled para saber se o GPS está ativado. Se tudo voltar verdadeiro,
