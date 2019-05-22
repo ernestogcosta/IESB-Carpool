@@ -13,13 +13,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-<<<<<<< HEAD
+
         android:layout_marginBottom="8dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
-=======
-        android:text="Login"
->>>>>>> 44d06e5601d80e886cbc49cfd53edd47f04aa4b1
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
