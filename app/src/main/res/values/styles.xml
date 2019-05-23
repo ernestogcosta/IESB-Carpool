@@ -20,4 +20,9 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="ButtonApp">
+        <item name="android:background">@drawable/botaoredondo</item>
+        <item name="android:textColor">@color/black_overlay</item>
+    </style>
+
 </resources>
