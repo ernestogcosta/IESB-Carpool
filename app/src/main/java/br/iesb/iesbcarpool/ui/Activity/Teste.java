@@ -44,7 +44,6 @@ public class Teste extends AppCompatActivity {
                         matriculaExistente = true;
                         break;
                     }
-
                 }
                 return matriculaExistente;
             }

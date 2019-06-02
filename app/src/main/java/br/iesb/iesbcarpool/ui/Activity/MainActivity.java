@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Intent i = new Intent(MainActivity.this, Teste.class);
-        //startActivity(i);
-        //finish();
+        Intent i = new Intent(MainActivity.this, MapActivityTest.class);
+        startActivity(i);
+        finish();
         inicializaComponentes();
         eventoClicks();
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     alert("Login efetuado com sucesso");
-                    Intent i = new Intent(MainActivity.this, UsuarioCadastrado.class);
+                    Intent i = new Intent(MainActivity.this, MapActivityTest.class);
                     startActivity(i);
                     finish();
                 }else{
