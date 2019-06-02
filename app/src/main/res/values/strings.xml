@@ -7,8 +7,7 @@
 
     <string name="title_activity_maps">Map</string>
 
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash">IESB Carpool</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
->>>>>>> 44d06e5601d80e886cbc49cfd53edd47f04aa4b1
 </resources>

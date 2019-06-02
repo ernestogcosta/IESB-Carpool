@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Model;
 
 import android.support.annotation.NonNull;
 

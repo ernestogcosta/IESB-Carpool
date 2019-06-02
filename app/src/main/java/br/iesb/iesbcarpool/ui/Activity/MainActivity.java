@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
+import br.iesb.iesbcarpool.ui.Model.Conexao;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Intent i = new Intent(MainActivity.this, Teste.class);
+        //startActivity(i);
+        //finish();
         inicializaComponentes();
         eventoClicks();
 
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         txtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Cadastro.class);
+                Intent i = new Intent(getApplicationContext(), CadastroActivity.class);
                 startActivity(i);
             }
         });

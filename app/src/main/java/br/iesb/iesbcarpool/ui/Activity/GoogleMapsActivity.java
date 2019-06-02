@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,16 +12,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.maps.SupportMapFragment;
-
-import java.util.ArrayList;
 
 import br.iesb.iesbcarpool.R;
 

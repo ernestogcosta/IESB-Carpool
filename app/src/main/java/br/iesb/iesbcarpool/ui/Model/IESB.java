@@ -1,6 +1,4 @@
-package br.iesb.iesbcarpool.ui;
-
-import java.util.Arrays;
+package br.iesb.iesbcarpool.ui.Model;
 
 public enum IESB {
     SUL(-15.834830, -47.912905, 1),
