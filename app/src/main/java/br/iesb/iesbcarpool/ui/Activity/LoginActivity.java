@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import br.iesb.iesbcarpool.R;
 import br.iesb.iesbcarpool.ui.Model.Conexao;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText txtEmail;
     private EditText txtSenha;
@@ -29,10 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Intent i = new Intent(MainActivity.this, MapActivityTest.class);
-        startActivity(i);
-        finish();
+        setContentView(R.layout.activity_login);
         inicializaComponentes();
         eventoClicks();
 
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         txtEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResetSenhaActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ResetSenhaActivity.class);
                 startActivity(intent);
 
             }
@@ -78,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(final String email,final String senha){
-        final MainActivity loginActivity = MainActivity.this;
+        final LoginActivity loginActivity = LoginActivity.this;
         final FirebaseAuth auth = Conexao.getFirebaseAuth();
         auth.signInWithEmailAndPassword(email,senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     alert("Login efetuado com sucesso");
-                    Intent i = new Intent(MainActivity.this, MapActivityTest.class);
+                    Intent i = new Intent(LoginActivity.this, MapActivityTest.class);
                     startActivity(i);
                     finish();
                 }else{
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     private void alert(String msg){
-        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_LONG).show();
     }
 
 

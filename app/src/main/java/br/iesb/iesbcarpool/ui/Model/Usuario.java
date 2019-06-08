@@ -22,6 +22,6 @@ public class Usuario {
 
     public void gravaNovosDados(String uid) {
         DatabaseReference reference = Conexao.getReference();
-        reference.child("Aluno").child(uid).setValue(this);
+        reference.child("Alunos").child(uid).setValue(this);
     }
 }

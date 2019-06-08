@@ -105,10 +105,14 @@ public class CadastroActivity extends AppCompatActivity {
                            final IESB iesb,
                            final Sexo sexo){
         DatabaseReference reference = Conexao.getReference();
-        reference.child("Aluno").addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+        reference.child("Alunos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(!verificaMatricula(dataSnapshot)){
+                if (!verificaAlunos(dataSnapshot)){
+                    registraUsuario();
+                }else if(!verificaMatricula(dataSnapshot)){
                     Usuario usuario = criaUser();
                     registraUsuarioEmailSenha(usuario);
                 }else{
@@ -116,6 +120,17 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
 
+            public void registraUsuario(){
+                Usuario usuario = criaUser();
+                registraUsuarioEmailSenha(usuario);
+            }
+            public boolean verificaAlunos(DataSnapshot dataSnapshot){
+                if(dataSnapshot.getChildrenCount() > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -145,7 +160,9 @@ public class CadastroActivity extends AppCompatActivity {
 
             public void registraUsuarioEmailSenha(final Usuario user){
                 final FirebaseAuth auth = Conexao.getFirebaseAuth();
+                alert("cheguei aqui");
                 Task<AuthResult> task = auth.createUserWithEmailAndPassword(email, senha);
+
                 task.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
