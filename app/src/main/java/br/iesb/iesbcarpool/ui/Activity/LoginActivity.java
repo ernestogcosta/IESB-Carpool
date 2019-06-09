@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
 import br.iesb.iesbcarpool.ui.Model.Conexao;
+import br.iesb.iesbcarpool.ui.recycleview.TesteRecycleActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,6 +31,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Intent i = new Intent(this, TesteRecycleActivity.class);
+        startActivity(i);
+        finish();
+
         inicializaComponentes();
         eventoClicks();
 

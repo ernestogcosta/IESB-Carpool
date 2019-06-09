@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".ui.recycleview.TesteRecycleActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -48,12 +48,12 @@
         <activity android:name=".ui.Activity.GoogleMapsActivity" />
         <activity android:name=".ui.Activity.CadastroActivity" />
         <activity android:name=".ui.Activity.UsuarioCadastrado" />
-
         <activity
             android:name=".ui.Activity.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

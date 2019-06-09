@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/idRecycleNome"
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -23,12 +23,12 @@
 
     <TextView
         android:id="@+id/idRecycleSexo"
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="0"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="0"
+        android:layout_marginBottom="0dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,10 +39,10 @@
 
     <TextView
         android:id="@+id/idRecycleDistancia"
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="0"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
@@ -55,10 +55,10 @@
 
     <TextView
         android:id="@+id/idRecycleMatricula"
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="0"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
