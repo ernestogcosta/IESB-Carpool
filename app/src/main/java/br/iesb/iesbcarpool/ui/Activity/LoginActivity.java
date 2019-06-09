@@ -83,9 +83,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     alert("Login efetuado com sucesso");
-                    Intent i = new Intent(LoginActivity.this, MapActivityTest.class);
-                    startActivity(i);
-                    finish();
+                    //Intent i = new Intent(LoginActivity.this, MapActivityTest.class);
+                    //startActivity(i);
+                    //finish();
                 }else{
                     alert("E-mail ou Senha inválidos");
                 }
