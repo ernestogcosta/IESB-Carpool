@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.iesb.iesbcarpool.R;
+import br.iesb.iesbcarpool.ui.Model.IESB;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,14 +1,11 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,15 +17,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Random;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import br.iesb.iesbcarpool.R;
+import br.iesb.iesbcarpool.ui.Model.Conexao;
+import br.iesb.iesbcarpool.ui.Model.IESB;
+import br.iesb.iesbcarpool.ui.Model.Sexo;
+import br.iesb.iesbcarpool.ui.Model.Usuario;
 
-public class Cadastro extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private TextView txtNome;
@@ -48,6 +49,9 @@ public class Cadastro extends AppCompatActivity {
         inicializaComponentes();
         eventoClicks();
     }
+    private void alert(String msg){
+        Toast.makeText(CadastroActivity.this,msg,Toast.LENGTH_LONG).show();
+    }
 
     private void inicializaComponentes(){
         txtNome = findViewById(R.id.txtNome);
@@ -59,11 +63,11 @@ public class Cadastro extends AppCompatActivity {
         btnCadastro = findViewById(R.id.idBtnCadastro);
         spinerIESB = findViewById(R.id.idSpinnerIESB);
         spinerSexo = findViewById(R.id.idSpinnerSexo);
-        ArrayAdapter arrayAdapterIESB = new ArrayAdapter(this,android.R.layout.simple_spinner_item,IESB.values());
+        ArrayAdapter arrayAdapterIESB = new ArrayAdapter(this,android.R.layout.simple_spinner_item, IESB.values());
         arrayAdapterIESB.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinerIESB.setAdapter(arrayAdapterIESB);
 
-        ArrayAdapter arrayAdapterSexo = new ArrayAdapter(this,android.R.layout.simple_spinner_item,Sexo.values());
+        ArrayAdapter arrayAdapterSexo = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Sexo.values());
         arrayAdapterSexo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinerSexo.setAdapter(arrayAdapterSexo);
     }
@@ -84,77 +88,97 @@ public class Cadastro extends AppCompatActivity {
                 String nome = txtNome.getText().toString().trim();
                 String senha = txtSenha.getText().toString().trim();
                 String matricula = txtMatricula.getText().toString().trim();
+                IESB iesb = (IESB) spinerIESB.getSelectedItem();
+                Sexo sexo = (Sexo) spinerSexo.getSelectedItem();
 
                 if(validaCampos(email,nome,senha,matricula)){
-                    verificaMatriculaExisteNoBanco(matricula,nome,email,senha);
+                    gravaUser(email,senha,nome,matricula,iesb,sexo);
                 }
             }
         });
     }
 
-    private void criarUser(final String email,
+    private void gravaUser(final String email,
                            final String senha,
                            final String nome,
-                           final String matricula
-                           ){
-        auth.createUserWithEmailAndPassword(email,senha)
-                .addOnCompleteListener(Cadastro.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            alert("Usuário cadastrado com sucesso");
-                            criaEGravaUsuario(email,senha,nome,matricula,auth.getUid());
-                            Intent i = new Intent(Cadastro.this, GoogleMapsActivity.class);
-                            startActivity(i);
-                            finish();
-                        }else{
-                            alert("Email ou senha inválidos");
-                        }
-                    }
-                });
-    }
-
-    private void alert(String msg){
-        Toast.makeText(Cadastro.this,msg,Toast.LENGTH_LONG).show();
-    }
-    private void criaEGravaUsuario(String email,
-                                   String senha,
-                                   String nome,
-                                   String matricula,
-                                   String uid){
-        Sexo sexo = (Sexo) spinerSexo.getSelectedItem();
-        IESB iesb = (IESB) spinerIESB.getSelectedItem();
-        Usuario usuario = new Usuario(nome,email,senha,sexo,iesb,uid);
-        usuario.gravaNovosDados(matricula);
-    }
-
-    private void verificaMatriculaExisteNoBanco(final String matricula,
-                                                   final String nome,
-                                                   final String email,
-                                                   final String senha
-    ){
+                           final String matricula,
+                           final IESB iesb,
+                           final Sexo sexo){
         DatabaseReference reference = Conexao.getReference();
-        reference.child("Aluno")
-                .child(matricula)
-                .orderByValue()
-                .addListenerForSingleValueEvent(new ValueEventListener() {
 
+
+        reference.child("Alunos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    alert("Matricula " +matricula+" já cadastrada");
+                if (!verificaAlunos(dataSnapshot)){
+                    registraUsuario();
+                }else if(!verificaMatricula(dataSnapshot)){
+                    Usuario usuario = criaUser();
+                    registraUsuarioEmailSenha(usuario);
                 }else{
-                    criarUser(email,senha,nome,matricula);
+                    alert("Matricula já cadastrada");
                 }
             }
 
+            public void registraUsuario(){
+                Usuario usuario = criaUser();
+                registraUsuarioEmailSenha(usuario);
+            }
+            public boolean verificaAlunos(DataSnapshot dataSnapshot){
+                if(dataSnapshot.getChildrenCount() > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
+            public boolean verificaMatricula(DataSnapshot dataSnapshot){
+                HashMap value = (HashMap)dataSnapshot.getValue();
+                List<Object> arrayKeySet = Arrays.asList(value.keySet().toArray());
+                boolean matriculaExistente = false;
+                for(Object key: arrayKeySet){
+                    HashMap hash = (HashMap) value.get(key);
+                    String matriculaHash = hash.get("matricula").toString();
+                    if(matricula.equals(matriculaHash)){
+                        matriculaExistente = true;
+                        break;
+                    }
+
+                }
+                return matriculaExistente;
+            }
+
+
+            public Usuario criaUser(){
+                Usuario newUser = new Usuario(nome,email,sexo,iesb,Long.parseLong(matricula));
+                return newUser;
+            }
+
+            public void registraUsuarioEmailSenha(final Usuario user){
+                final FirebaseAuth auth = Conexao.getFirebaseAuth();
+                alert("cheguei aqui");
+                Task<AuthResult> task = auth.createUserWithEmailAndPassword(email, senha);
+
+                task.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            String uid = auth.getUid();
+                            user.gravaNovosDados(uid);
+                            alert("Cadastrado com sucesso");
+                        }else{
+                            alert("Email já cadastrado");
+                        }
+                    }
+                });
+            }
+
         });
     }
-
     private boolean validaCampos(String email,String nome,String senha,String matricula){
         if(email.length() == 0 || nome.length() == 0 || senha.length() == 0|| matricula.length() == 0){
             alert("Todos os campos são obrigatórios");

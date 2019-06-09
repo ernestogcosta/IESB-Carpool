@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;

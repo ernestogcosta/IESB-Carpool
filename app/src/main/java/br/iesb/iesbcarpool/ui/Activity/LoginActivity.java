@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,15 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
+import br.iesb.iesbcarpool.ui.Model.Conexao;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText txtEmail;
     private EditText txtSenha;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         inicializaComponentes();
         eventoClicks();
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         txtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Cadastro.class);
+                Intent i = new Intent(getApplicationContext(), CadastroActivity.class);
                 startActivity(i);
             }
         });
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         txtEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResetSenhaActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ResetSenhaActivity.class);
                 startActivity(intent);
 
             }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(final String email,final String senha){
-        final MainActivity loginActivity = MainActivity.this;
+        final LoginActivity loginActivity = LoginActivity.this;
         final FirebaseAuth auth = Conexao.getFirebaseAuth();
         auth.signInWithEmailAndPassword(email,senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     alert("Login efetuado com sucesso");
-                    Intent i = new Intent(MainActivity.this, UsuarioCadastrado.class);
-                    startActivity(i);
-                    finish();
+                    //Intent i = new Intent(LoginActivity.this, MapActivityTest.class);
+                    //startActivity(i);
+                    //finish();
                 }else{
                     alert("E-mail ou Senha inválidos");
                 }
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     private void alert(String msg){
-        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_LONG).show();
     }
 
 

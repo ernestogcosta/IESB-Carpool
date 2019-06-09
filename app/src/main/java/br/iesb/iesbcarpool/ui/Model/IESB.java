@@ -1,6 +1,6 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Model;
 
-import java.util.Arrays;
+import com.google.android.gms.maps.model.LatLng;
 
 public enum IESB {
     SUL(-15.834830, -47.912905, 1),
@@ -16,6 +16,10 @@ public enum IESB {
         this.latitude = latitude;
         this.longitude = longitude;
         this.id = id;
+    }
+
+    public LatLng getLatLng(){
+        return new LatLng(this.latitude, this.longitude);
     }
 
 

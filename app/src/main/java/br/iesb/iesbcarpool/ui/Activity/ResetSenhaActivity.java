@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui;
+package br.iesb.iesbcarpool.ui.Activity;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
+import br.iesb.iesbcarpool.ui.Model.Conexao;
 
 public class ResetSenhaActivity extends AppCompatActivity {
 
