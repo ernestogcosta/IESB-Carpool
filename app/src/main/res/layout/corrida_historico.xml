@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="15sp"
+    android:id="@+id/historico_layout">
 
     <TextView
         android:id="@+id/idRecycleDestino"
@@ -19,7 +21,9 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:textColor="#000"
+        android:textSize="17sp"/>
 
     <TextView
         android:id="@+id/idRecycleMotorista"
@@ -34,8 +38,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idRecycleMatricula"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/idRecycleDestino"
+        app:layout_constraintVertical_bias="0.0"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/idRecycleHorarioPartida"
@@ -50,8 +55,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idRecycleSexo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/idRecycleMotorista"
+        app:layout_constraintVertical_bias="0.0"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/idRecycleHorarioChegada"
@@ -65,7 +71,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idRecycleNome"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/idRecycleHorarioPartida"
+        app:layout_constraintVertical_bias="0.0"
+        android:textSize="14sp"/>
 
 </android.support.constraint.ConstraintLayout>
