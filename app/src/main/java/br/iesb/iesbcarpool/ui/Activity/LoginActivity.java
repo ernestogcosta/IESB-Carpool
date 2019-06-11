@@ -31,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Intent i = new Intent(this, TesteRecycleActivity.class);
-        startActivity(i);
-        finish();
+     //   Intent i = new Intent(this, TesteRecycleActivity.class);
+     //   startActivity(i);
+     //   finish();
 
         inicializaComponentes();
         eventoClicks();
