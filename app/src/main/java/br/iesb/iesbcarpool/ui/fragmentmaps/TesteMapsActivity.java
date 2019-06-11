@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
@@ -53,7 +54,7 @@ public class TesteMapsActivity extends FragmentActivity implements
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
-    private Location lastLocation;
+    private Location lastLocation, testeLocation;
     private Marker currentUserLocationMarker;
     private MarkerOptions destino, partida;
     private boolean mLocationPermissionGranted = false;
@@ -76,9 +77,20 @@ public class TesteMapsActivity extends FragmentActivity implements
 
         /**
          * TESTE PARA TRAÇAR LOCALIZAÇÃO DA ESCOLA DE MÚSICA DE BRASÍLIA PARA O IESB SUL
-         * */
+         */
         partida = new MarkerOptions().position((new LatLng(-15.808289,-47.8833377))).title("Eu");
         destino = new MarkerOptions().position(new LatLng(IESB.SUL.getLatitude(), IESB.SUL.getLongitude())).title("IESB Sul");
+
+
+        /**
+         * Tentativa de plotar da localização atual, usando um testeLocation que em onConnected
+         * salva a posição atual...
+
+        partida = new MarkerOptions().position((new LatLng(testeLocation.getLatitude(),testeLocation.getLongitude()))).title("Eu");
+        destino = new MarkerOptions().position(new LatLng(IESB.SUL.getLatitude(), IESB.SUL.getLongitude())).title("IESB Sul");
+         *
+         * Deu pau....
+         */
 
         String url = getUrl(partida.getPosition(), destino.getPosition(), "dirigindo");
         new FetchURL(TesteMapsActivity.this).execute(url, "dirigindo");
@@ -205,6 +217,8 @@ public class TesteMapsActivity extends FragmentActivity implements
             LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         }
 
+        testeLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+
 
     }
 
@@ -318,6 +332,6 @@ public class TesteMapsActivity extends FragmentActivity implements
         if(currentPolyline != null){
             currentPolyline.remove();
         }
-        currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
+        currentPolyline = mMap.addPolyline(((PolylineOptions) values[0]).color(Color.RED).width(10));
     }
 }
