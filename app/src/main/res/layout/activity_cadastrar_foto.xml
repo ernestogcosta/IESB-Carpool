@@ -17,14 +17,16 @@
 
     <Button
         android:id="@+id/capture_image_btn"
+        style="@style/ButtonApp"
         android:text="Tirar foto."
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="144dp"
-        android:layout_height="89dp"
+        style="@style/ButtonApp"
+        android:layout_width="143dp"
+        android:layout_height="75dp"
         android:text="Registrar" />
 
 </LinearLayout>
