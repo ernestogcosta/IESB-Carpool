@@ -1,13 +1,6 @@
-package br.iesb.iesbcarpool.ui.Model;
-
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
+package br.iesb.iesbcarpool.ui.model;
 
 import com.google.android.gms.maps.model.LatLng;
-
-import br.iesb.iesbcarpool.R;
 
 class LatitudeLongitude {
 

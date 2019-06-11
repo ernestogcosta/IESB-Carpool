@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,8 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Model.Conexao;
-import br.iesb.iesbcarpool.ui.recycleview.TesteRecycleActivity;
+import br.iesb.iesbcarpool.ui.fragmentmaps.TesteMapsActivity;
+import br.iesb.iesbcarpool.ui.model.Conexao;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Intent i = new Intent(this, TesteRecycleActivity.class);
+        Intent i = new Intent(this, TesteMapsActivity.class);
         startActivity(i);
         finish();
 

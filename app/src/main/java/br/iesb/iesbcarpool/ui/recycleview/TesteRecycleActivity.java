@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Model.Conexao;
-import br.iesb.iesbcarpool.ui.Model.IESB;
-import br.iesb.iesbcarpool.ui.Model.Sexo;
-import br.iesb.iesbcarpool.ui.Model.Usuario;
+import br.iesb.iesbcarpool.ui.model.Conexao;
+import br.iesb.iesbcarpool.ui.model.IESB;
+import br.iesb.iesbcarpool.ui.model.Sexo;
+import br.iesb.iesbcarpool.ui.model.Usuario;
 
 public class TesteRecycleActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Model;
+package br.iesb.iesbcarpool.ui.model;
 
 import com.google.firebase.database.DatabaseReference;
 

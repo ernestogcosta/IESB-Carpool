@@ -7,6 +7,7 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -24,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.recycleview.TesteRecycleActivity"></activity>
+        <activity android:name=".ui.fragmentmaps.TesteMapsActivity" />
+        <activity android:name=".ui.recycleview.TesteRecycleActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -37,19 +39,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".ui.activity.ResetSenhaActivity" />
+        <activity android:name=".ui.fragmentmaps.GoogleMapsActivity" />
+        <activity android:name=".ui.activity.CadastroActivity" />
+        <activity android:name=".ui.activity.UsuarioCadastrado" />
         <activity
-            android:name=".ui.Activity.MapActivityTest"
-            android:label="@string/title_activity_map_test" />
-        <activity android:name=".ui.Activity.Teste" />
-        <activity
-            android:name=".ui.Activity.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".ui.Activity.ResetSenhaActivity" />
-        <activity android:name=".ui.Activity.GoogleMapsActivity" />
-        <activity android:name=".ui.Activity.CadastroActivity" />
-        <activity android:name=".ui.Activity.UsuarioCadastrado" />
-        <activity
-            android:name=".ui.Activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
