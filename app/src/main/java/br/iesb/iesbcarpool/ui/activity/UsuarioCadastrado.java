@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Activity.GoogleMapsActivity;
+import br.iesb.iesbcarpool.ui.fragmentmaps.GoogleMapsActivity;
 
 public class UsuarioCadastrado extends AppCompatActivity {
 

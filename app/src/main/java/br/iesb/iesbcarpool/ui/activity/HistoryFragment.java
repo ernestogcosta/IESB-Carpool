@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,9 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
-import androidx.navigation.Navigation;
 
 import br.iesb.iesbcarpool.R;
 

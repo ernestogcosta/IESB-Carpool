@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="br.iesb.iesbcarpool.ui.Activity.MapsFragment"
+        android:name="br.iesb.iesbcarpool.ui.activity.MapsFragment"
         android:label="MapsFragment" />
     <fragment
         android:id="@+id/historyFragment"
-        android:name="br.iesb.iesbcarpool.ui.Activity.HistoryFragment"
+        android:name="br.iesb.iesbcarpool.ui.activity.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="br.iesb.iesbcarpool.ui.Activity.ProfileFragment"
+        android:name="br.iesb.iesbcarpool.ui.activity.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action

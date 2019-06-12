@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.fragmentmaps;
 
 
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Model.IESB;
+import br.iesb.iesbcarpool.ui.model.IESB;
 
 /**
  * A simple {@link Fragment} subclass.

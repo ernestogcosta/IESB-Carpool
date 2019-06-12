@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,8 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Model.Conexao;
-import br.iesb.iesbcarpool.ui.recycleview.TesteRecycleActivity;
+import br.iesb.iesbcarpool.ui.model.Conexao;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,8 +30,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Intent i = new Intent(this, GoogleMapsActivity.class);
-        startActivity(i);
+        /**
+         * essas duas linhas comentadas são para ir direto para o maps
+         * no maps está pegando a localização atual e focando a câmera nela
+         * porém, está sendo traçado também com Directions uma rota da escola de música de brasília
+         * para o iesb da asa sul
+         */
+//        Intent i = new Intent(this, TesteMapsActivity.class);
+//        startActivity(i);
         finish();
 
         inicializaComponentes();
@@ -63,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         txtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), CadastroActivity.class);
+                Intent i = new Intent(getApplicationContext(), br.iesb.iesbcarpool.ui.activity.CadastroActivity.class);
                 startActivity(i);
             }
         });
@@ -71,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         txtEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ResetSenhaActivity.class);
+                Intent intent = new Intent(LoginActivity.this, br.iesb.iesbcarpool.ui.activity.ResetSenhaActivity.class);
                 startActivity(intent);
 
             }

@@ -1,4 +1,4 @@
-package br.iesb.iesbcarpool.ui.Activity;
+package br.iesb.iesbcarpool.ui.activity;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,10 +24,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import br.iesb.iesbcarpool.R;
-import br.iesb.iesbcarpool.ui.Model.Conexao;
-import br.iesb.iesbcarpool.ui.Model.IESB;
-import br.iesb.iesbcarpool.ui.Model.Sexo;
-import br.iesb.iesbcarpool.ui.Model.Usuario;
+import br.iesb.iesbcarpool.ui.model.Conexao;
+import br.iesb.iesbcarpool.ui.model.IESB;
+import br.iesb.iesbcarpool.ui.model.Sexo;
+import br.iesb.iesbcarpool.ui.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
 
